@@ -1,4 +1,4 @@
-function __emoji-cli_available
+function __gitmoji_available
   for cmd in $argv
     if which (string match -r '^[\S]+' "$cmd") >/dev/null ^&1;
       echo $cmd
@@ -7,8 +7,8 @@ function __emoji-cli_available
   end
 end
 
-function __emoji-cli -d 'Emoji completion on the command line'
-  set -q EMOJI_CLI_FILTER; or set -l EMOJI_CLI_FILTER 'fzy' 'fzf' 'peco' 'percol'
+function __gitmoji -d 'Gitmoji completion for fish shell'
+  set -q GITMOJI_FILTER; or set -l GITMOJI_FILTER 'fzy' 'fzf' 'peco' 'percol'
   set -l buf (commandline -t)
   set -l cursor (commandline -C)
   set -l lbuf (commandline -tc)
@@ -28,10 +28,10 @@ function __emoji-cli -d 'Emoji completion on the command line'
     end
   end
 
-  cat (dirname (realpath (status -f)))/../emoji.tsv \
-    | awk '{ print ":"$1": "$2}' \
-    | eval (__emoji-cli_available $EMOJI_CLI_FILTER)" --query '$query'" \
-    | string match -r ':[^:]+:' \
+  cat (dirname (realpath (status -f)))/../conf.d/gitmoji.tsv \
+    | awk '{ print $1"\t"$2}' \
+    | eval (__gitmoji_available $GITMOJI_FILTER)" --query '$query'" \
+    | string match -r '^[\S]' \
     | read -l emoji
   
   if test -n $emoji

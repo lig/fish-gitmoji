@@ -1,19 +1,33 @@
-# emoji-cli
-`emoji-cli` provides input completion for emoji on the command line with an interactive filter. (a fish porting of [b4b4r07/emoji-cli](https://github.com/b4b4r07/emoji-cli))
+# gitmoji for fish
 
-## :mag: Usage
-To insert emoji to the commandline, type ctrl-s(^s)
+`gitmoji` provides input completion for the gitmoji subset of the whole emoji set on the command line with an interactive filter (based on [Tosuke/emoji-cli](https://github.com/Tosuke/emoji-cli)).
+
+* Learn more about **gitmoji** emoji subset here [gitmoji.carloscuesta.me](https://gitmoji.carloscuesta.me/).
+* Learn more about **fish** shell here [fishshell.com](https://fishshell.com/).
+
+
+## 📝 Usage
+
+To insert gitmoji to the commandline, type ctrl-g(^g)
+
 ```shell
-$ git commit -m "^s
+$ git commit -m "^g
 ```
 
-## :package: Installation
-### With [**Fisherman**](https://github.com/fisherman/fisherman)
+Use relevant keywords to search for a proper gitmoji.
+See currently available keywords in the [gitmoji.tsv](conf.d/gitmoji.tsv) file.
+
+
+## 📦 Installation
+
+Use [**Fisherman**](https://github.com/fisherman/fisherman)
+
 ```shell
-$ fisher Tosuke/emoji-cli
+$ fisher add lig/fish-gitmoji
 ```
 
-## Requirements
+## ➕ Requirements
+
 - An interactive filter
   - [**fzy**](https://github.com/jhawthorn/fzy)
   - [**fzf**](https://github.com/junegunn/fzf)
@@ -21,9 +35,17 @@ $ fisher Tosuke/emoji-cli
   - [**percol**](https://github.com/mooz/percol)
   - etc...
 
+*Note: `gitmoji` will silently fail to respond to a keybinding if you havn't got a filter tool installed on your system.*
 
-## :wrench: Configurations
+
+## 🔧 Configurations
+
 | Variable | Remarks | Default |
 | -------- | ------- | ------- |
-| EMOJI_CLI_FILTER | the interactive filter commands list | fzy fzf peco percol |
-| EMOJI_CLI_KEYBIND | the key binding to start the completion | ^s(ctrl-s) |
+| GITMOJI_FILTER | the interactive filter commands list | fzy fzf peco percol |
+| GITMOJI_KEYBIND | the key binding to start the completion | ^s(ctrl-s) |
+
+
+## 👥 Contribution
+
+All issues and PRs are welcome. Also, feel free to suggest an additional keyword for a gitmoji.
