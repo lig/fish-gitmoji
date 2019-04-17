@@ -43,7 +43,7 @@ $ fisher add lig/fish-gitmoji
 | Variable | Remarks | Default |
 | -------- | ------- | ------- |
 | GITMOJI_FILTER | the interactive filter commands list | fzy fzf peco percol |
-| GITMOJI_KEYBIND | the key binding to start the completion | ^s(ctrl-s) |
+| GITMOJI_KEYBIND | the key binding to start the completion | ^g(ctrl-g) |
 
 
 ## 👥 Contribution
