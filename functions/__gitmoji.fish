@@ -1,6 +1,6 @@
 function __gitmoji_available
   for cmd in $argv
-    if which (string match -r '^[\S]+' "$cmd") > /dev/null;
+    if which (string match -r '^[\S]+' "$cmd") 2&> /dev/null;
       echo $cmd
       break
     end
